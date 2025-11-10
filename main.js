@@ -1,12 +1,13 @@
 // const playerName = prompt("Skriv ditt namn: ")
-const playerName = "Jens" // statiskt så vi slipper prompt varje körning
+const playerName = "HotmaleSlayer6000" // statiskt så vi slipper prompt varje körning
 let playerHp = 100
 let enemyHp = 100
 
 function rollDice() {
-    return Math.ceil(Math.random() * 6)
+    return Math.ceil(Math.random() * 20)
 }
 
+const playButton = document.querySelector("#play-button")
 const playerHpElement = document.querySelector("#player-hp")
 const enemyHpElement = document.querySelector("#enemy-hp")
 const combatLogElement = document.querySelector("#combat-log")
@@ -25,19 +26,31 @@ function gameRound() {
     const enemyRoll = rollDice()
     if (playerRoll > enemyRoll) {
         const damage = playerRoll - enemyRoll
-        log(`Du köttar fienden för ${damage}!`)
+        log(`You hit the enemy for ${damage}!`)
         enemyHp -= damage
     } else if (enemyRoll > playerRoll) {
         const damage = enemyRoll - playerRoll
-        log(`Nedrans, du blir mulad för ${damage}!`)
+        log(`Ouch, You got hit and lost ${damage} hp!`)
         playerHp -= damage
     } else {
-        log("Snyggt parerat, inget händer!")
+        log("Nice parry, Now STRIKE!")
     }
+
+
+    if (playerHp < 1 || enemyHp < 1) {
+        playButton.disabled = true;
+        if (playerHp < 1) {
+            log("GAME OVER - Enemy Won!")
+        } else {
+            log(`Congrats - ${playerName} Won!`)
+        }
+    } else if (playerHp < 30) {
+        playerHpElement.classList.add("low-hp")
+    }
+
     playerHpElement.textContent = playerHp
     enemyHpElement.textContent = enemyHp
 }
 playerHpElement.textContent = playerHp
 enemyHpElement.textContent = enemyHp
-const playButton = document.querySelector("#play-button")
 playButton.addEventListener("click", gameRound)

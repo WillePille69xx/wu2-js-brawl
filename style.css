@@ -19,3 +19,11 @@ ul {
     display: flex;
     flex-direction: column-reverse;
 }
+
+.low-hp {
+    color: red;
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+    transform: scale(1.05)
+}
