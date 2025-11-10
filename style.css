@@ -3,21 +3,30 @@ body {
     font-size: 1.2rem;
 }
 
-ul {
-    list-style: none;
-    font-family: monospace;
-}
+
 
 .wrapper {
     max-width: 56rem;
     margin-inline: auto;
     padding-right: 1rem;
     padding-left: 1rem;
+
+    ul {
+        list-style: none;
+        font-family: monospace;
+    }
 }
 
 #combat-log {
     display: flex;
     flex-direction: column-reverse;
+
+    .player {
+        color: green;
+    }
+    .enemy {
+        color: red;
+    }
 }
 
 .low-hp {
@@ -25,5 +34,31 @@ ul {
     font-weight: bold;
 
     transition: all 0.3s ease;
-    transform: scale(1.05)
+    animation: pulse 1s infinite, colorpulse 1s infinite;
+}
+
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes colorpulse {
+    0% {
+        color: red;
+    }
+    50% {
+        color: darkred;
+    }
+    100% {
+        color: red;
+    }
 }
