@@ -17,6 +17,27 @@ body {
     }
 }
 
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 80px;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    font-size: 1rem;
+    cursor: pointer;  
+    background-color: #f5f5f5;  
+}
+
+button:hover {
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+
 #combat-log {
     display: flex;
     flex-direction: column-reverse;

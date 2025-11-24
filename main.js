@@ -1,10 +1,10 @@
-// const playerName = prompt("Skriv ditt namn: ")
-const playerName = "HotmaleSlayer6000" // statiskt så vi slipper prompt varje körning
+const playerName = prompt("Write your name: ")
+// const playerName = "Test Player" 
 let playerHp = 100
 
 
 function rollDice() {
-    return Math.ceil(Math.random() * 20)  // Back to d6 (1-6)
+    return Math.ceil(Math.random() * 20)  // random 1-20
 }
 
 const playButton = document.querySelector("#play-button")
@@ -24,7 +24,7 @@ function log(msg, type) {
     }
 }
 
-const enemies = [
+const enemies = [ 
     {
         "name": "Goblin Grunt",
         "hp": 40,
@@ -132,7 +132,7 @@ const enemies = [
     }
 ]
 
-const enemy = enemies[Math.floor(Math.random() * enemies.length)]
+const enemy = enemies[Math.floor(Math.random() * enemies.length)] // picks randomw enemy
 
 function gameRound() {
     const playerRoll = rollDice()
