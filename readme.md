@@ -7,6 +7,7 @@ Koden är ett webbaserat, turbaserat stridsspel skrivet i JavaScript där spelar
 Jag har adderat custom enemies + custom appear messages.
 Jag har adderat visual effecten hp color pulse.
 Jag adderat så att usern kan inputa sitt eget name (custom name). 
+I added races this lession you klick a button after inputing your name and then a random race is rolled.
 
 
 # vad är du mest nöjd med?
