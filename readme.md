@@ -1,22 +1,17 @@
-# Vi kodar javascript!
+# vad är du mest nöjd med?
 
-En start för brawl. Vi har ännu inte gått igenom den sista delen för combat log, det gör vi nästa måndag.
+Det jag är mest nöjd med är min enemy function, hur den väljer en random ibland alla enemies, Custom hit messages och sist är en simpel function jag gillar hur hp är animerat och pulserar mellan mörk röd & röd när hp är lågt(30 eller mindre.).
 
-## Kom igång
 
-Gör en fork av det här repot. Gör sedan en klon av det till din dator i code mappen. 
+## Vad kan du arbeta vidare på?
 
-```bash
-cd code
-git clone <din-fork-url>
-```
+Något jag kan jobba vidare med är img's till varje enemy, samt göra snyggare layouts.
+Kanse göra en higscore.
+Göra så påäng när man dödar fienden. + en shop
+Göra en replay button när man dör.
+Göra en Next button när du dödat en fiende.
 
-Arbeta sedan i din fork.
 
-## Ditt uppdrag
+### Vad behöver du lära dig mer om
 
-Förstå koden. Ta dig tiden och titta igenom alla delarna.
-Försök hitta likheterna med Python.
-
-**Det jag vill att du gör är att lägga till något eget, det kan vara kod, css eller html, men det ska vara något som du har gjort själv.**
-
+hmm... Jag kanske borde lära mig lite mer om hur man använder js. 

@@ -1,5 +1,5 @@
-const playerName = prompt("Write your name: ")
-// const playerName = "Test Player" 
+//const playerName = prompt("Write your name: ")
+const playerName = "Test Player" 
 let playerHp = 100
 
 
