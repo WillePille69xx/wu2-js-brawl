@@ -1,16 +1,20 @@
-//const playerName = prompt("Write your name: ")
-const playerName = "Test Player" 
+// const playerName = prompt("Skriv ditt namn: ")
+let playerName = "Test Player" // statiskt så vi slipper prompt varje körning
 let playerHp = 100
 
 
 function rollDice() {
-    return Math.ceil(Math.random() * 20)  // random 1-20
+    return Math.ceil(Math.random() * 20)  // Back to d6 (1-6)
 }
 
+const nameInput = document.querySelector("#name-input");
+const raceButton = document.querySelector("#race-button");
 const playButton = document.querySelector("#play-button")
 const playerHpElement = document.querySelector("#player-hp")
 const enemyHpElement = document.querySelector("#enemy-hp")
 const combatLogElement = document.querySelector("#combat-log")
+
+playButton.disabled = true;
 
 function log(msg, type) {
     const li = document.createElement("li")
@@ -24,7 +28,88 @@ function log(msg, type) {
     }
 }
 
-const enemies = [ 
+const playerRaces = [
+    {
+        "name": "Human",
+        "description": "Versatile and resilient, humans adapt quickly to any situation. (Fancy way of saying basic.)",
+        "hpBonus": 0
+    },
+    {
+        "name": "High Elf",
+        "description": "Elegant, immortal, and judging your outfit. Their hair has more volume than this code.",
+        "hpBonus": -10
+    },
+    {
+        "name": "Mountain Dwarf",
+        "description": "Short, sturdy, and 90% beard. Smells vaguely of old ale and rocks.",
+        "hpBonus": 20
+    },
+    {
+        "name": "Orc",
+        "description": "Big, green, and solves problems by hitting them until they stop being problems.",
+        "hpBonus": 30
+    },
+    {
+        "name": "Halfling",
+        "description": "Small and lucky. Mostly here for the second breakfast and the elevenses.",
+        "hpBonus": -5
+    },
+    {
+        "name": "Skeleton",
+        "description": "Literally just a pile of bones held together by magic and bad vibes. Hates dogs.",
+        "hpBonus": -15
+    },
+    {
+        "name": "Cyborg (Beta Version)",
+        "description": "Half man, half machine, fully bugged. Sometimes crashes when trying to toast bread.",
+        "hpBonus": 25
+    },
+    {
+        "name": "Sentient Slime",
+        "description": "A wobbly blob of goo. It doesn't have a brain, but it has spirit (and your wallet).",
+        "hpBonus": 15
+    },
+    {
+        "name": "Vampire Intern",
+        "description": "Sparkles? No. Just tired and avoids the sun because they forgot sunscreen.",
+        "hpBonus": 20
+    },
+    {
+        "name": "God of Procrastination",
+        "description": "Always puts things off until tomorrow. Why do today what you can avoid forever?",
+        "hpBonus": 700
+    }
+]
+
+function randomRace() {
+    const race = playerRaces[Math.floor(Math.random() * playerRaces.length)];
+    return race;
+}
+
+raceButton.addEventListener("click", () => {
+    const inputName = nameInput.value;
+    if (inputName.trim() !== "") {
+        playerName = inputName;
+    } else {
+        playerName = "Anonymous Coward";
+    }
+    const race = randomRace();
+    playerHp = 100 + race.hpBonus;
+    log(`Welcome, ${playerName}!`);
+    log(`You were born as a: ${race.name}`);
+    log(`Trait: ${race.description}`);
+    log(`HP Bonus: ${race.hpBonus} (Total HP: ${playerHp})`, "player");
+    playerHpElement.textContent = playerHp;
+    enemyHpElement.textContent = enemy.hp;
+
+    raceButton.disabled = true;
+    nameInput.disabled = true;
+    playButton.disabled = false;
+    log("--- A CHALLENGER APPEARS ---");
+        log(`${enemy.appearMessage}`, "enemy");
+    });
+
+const enemies = [
     {
         "name": "Goblin Grunt",
         "hp": 40,
@@ -132,7 +217,7 @@ const enemies = [
     }
 ]
 
-const enemy = enemies[Math.floor(Math.random() * enemies.length)] // picks randomw enemy
+const enemy = enemies[Math.floor(Math.random() * enemies.length)]
 
 function gameRound() {
     const playerRoll = rollDice()
@@ -181,7 +266,6 @@ const playerAttackMessages = [
     playerHpElement.textContent = playerHp
     enemyHpElement.textContent = enemy.hp
 }
-playerHpElement.textContent = playerHp
-enemyHpElement.textContent = enemy.hp
-log(`${enemy.appearMessage}`)
-playButton.addEventListener("click", gameRound)
+
+
+playButton.addEventListener("click", gameRound);
